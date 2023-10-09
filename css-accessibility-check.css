@@ -1,0 +1,10 @@
+/* Images with empty alt tags */
+img[alt=""] {
+    background: red;
+    border: 3px solid red;
+}
+/* Images with empty alt tags */
+img[alt=" "] {
+    background: purple;
+    border: 3px solid purple;
+}
