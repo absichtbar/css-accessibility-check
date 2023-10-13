@@ -1,10 +1,17 @@
-/* Images with empty alt tags */
-img[alt=""] {
-    background: red !important;
-    border: 3px solid red !important;
+/*
+Attach this CSS file to your Website by adding the following line to the <head> section of your html document: 
+<link rel="stylesheet" href="https://raw.githubusercontent.com/absichtbar/css-accessibility-check/main/css-accessibility-check.css">
+Created by: Annika Brinkmann - https://annika-brinkmann.de
+*/
+
+/* Image is missing alternative text but has a title set? Add one red outlines*/
+img[title=""]:not([alt]), img[title=" "]:not([alt]) {
+    outline: 3px solid red !important;
+    outline-offset: 3px !important;
 }
-/* Images with empty alt tags */
-img[alt=" "] {
-    background: purple !important;
-    border: 3px solid purple !important;
+/* Image is missing alternative text and title? Add two red outlines! */
+img:not([alt]):not([title]) {
+    border: 3px solid red !important;
+    outline: 3px solid red !important;
+    outline-offset: 3px !important;
 }
