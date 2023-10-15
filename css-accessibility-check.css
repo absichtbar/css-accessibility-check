@@ -56,3 +56,11 @@ button:empty {
 button:empty::before, button:empty::after {
     content: none !important;
 }
+
+/* 6. Missing document language */
+html:not([lang])::before, html[lang=""]::before  {
+    content: "language tag is missing!";
+    background: red;
+    color: white;
+    padding: 2px;
+}

@@ -41,12 +41,6 @@ buttons that do not contain any text nor image and marks them red and removes ic
 
 It does not work if a button contains an image or icon inserted between <button> and </button>. 
 
-++++++++++++++++++++++++++++++++++++++++++++++
-# Wich accessibility issues will it show later?
-
-## 4. Missing form input labels
-css-accessibility-check looks for 
-forms that have <input> that is not type="button" or type="hidden" but dos not have <label> 
 
 ## 6. Missing document language
 css-accessibility-check looks for 
@@ -54,6 +48,12 @@ empty or missing language tag for html.
 
 It does not check if the language tag is set correctly. 
 
+++++++++++++++++++++++++++++++++++++++++++++++
+# Wich accessibility issues will it show later?
+
+## 4. Missing form input labels
+css-accessibility-check looks for 
+forms that have <input> that is not type="button" or type="hidden" but dos not have <label> 
 
 # Wich accessibility issues will not be added?
 ## 1. low contrast text
