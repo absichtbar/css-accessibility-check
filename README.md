@@ -31,6 +31,12 @@ css-accessibility-check looks for:
 
 It does not check if an alt tag is available but empty, because this may be set to mark the image decorative. 
 
+## 5. Empty buttons
+css-accessibility-check looks for \n
+• buttons that do not contain any text nor image and marks them red and removes icons or text that is rendered by generated content.
+
+It does not work if a button contains an image or icon inserted between <button> and </button>. 
+
 # Wich accessibility issues will it show later?
 ## 3. Empty links
 css-accessibility-check looks for 
@@ -39,8 +45,6 @@ css-accessibility-check looks for
 ## 4. Missing form input labels
 css-accessibility-check looks for 
 • forms that have <input> that is not type="button" or type="hidden" but dos not have <label> 
-
-## 5. Empty buttons
 
 ## 6. Missing document language
 

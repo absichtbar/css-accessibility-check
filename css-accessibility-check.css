@@ -15,3 +15,13 @@ img:not([alt]):not([title]) {
     outline: 3px solid red !important;
     outline-offset: 3px !important;
 }
+
+/* find empty buttons, color them red and remove generated content that might add an icon only visually */
+button:empty {
+    background: red;
+    border: red;
+    color: red;
+}
+button:empty::before, button:empty::after {
+    content: none !important;
+}
