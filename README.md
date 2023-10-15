@@ -27,28 +27,33 @@ css-accessibility-check can detect the following of this failures:
 
 ## 2. Missing alternative text for images
 css-accessibility-check looks for:
-• img that do not have an alt tag at all and marks them using a red overlay and 3px red border
+img that do not have an alt tag at all and marks them using a red overlay and 3px red border
 
 It does not check if an alt tag is available but empty, because this may be set to mark the image decorative. 
 
+## 3. Empty links
+css-accessibility-check looks for 
+empty <a></a> tags that do not have a title, aria-label or aria-labelled-by attribute and marks them with a 3px red border
+
 ## 5. Empty buttons
-css-accessibility-check looks for \n
-• buttons that do not contain any text nor image and marks them red and removes icons or text that is rendered by generated content.
+css-accessibility-check looks for:
+buttons that do not contain any text nor image and marks them red and removes icons or text that is rendered by generated content.
 
 It does not work if a button contains an image or icon inserted between <button> and </button>. 
 
+++++++++++++++++++++++++++++++++++++++++++++++
 # Wich accessibility issues will it show later?
-## 3. Empty links
-css-accessibility-check looks for 
-• empty <a></a> tags that do not have a title, aria-label or aria-labelled-by attribute and marks them with a 3px red border
 
 ## 4. Missing form input labels
 css-accessibility-check looks for 
-• forms that have <input> that is not type="button" or type="hidden" but dos not have <label> 
+forms that have <input> that is not type="button" or type="hidden" but dos not have <label> 
 
 ## 6. Missing document language
+css-accessibility-check looks for 
+empty or missing language tag for html. 
 
-And hopefully more soon! 
+It does not check if the language tag is set correctly. 
+
 
 # Wich accessibility issues will not be added?
 ## 1. low contrast text

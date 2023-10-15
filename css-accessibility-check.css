@@ -4,23 +4,54 @@ Attach this CSS file to your Website by adding the following line to the <head> 
 Created by: Annika Brinkmann - https://annika-brinkmann.de
 */
 
-/* Image is missing alternative text but has a title set? Add one red outlines*/
+/* 2. Missing alternative text for images */
 img[title=""]:not([alt]), img[title=" "]:not([alt]) {
     outline: 3px solid red !important;
     outline-offset: 3px !important;
 }
-/* Image is missing alternative text and title? Add two red outlines! */
 img:not([alt]):not([title]) {
     border: 3px solid red !important;
     outline: 3px solid red !important;
     outline-offset: 3px !important;
 }
 
-/* find empty buttons, color them red and remove generated content that might add an icon only visually */
+/* 3. Empty links */
+a:empty:not([title]):not([aria-label]):not([aria-labelledby]), 
+a:empty:not([title]):not([aria-label])[aria-labelledby=""], 
+a:empty:not([title])[aria-label=""]:not([aria-labelledby]), 
+a:empty:not([title])[aria-label=""][aria-labelledby=""], 
+a:empty[title=""]:not([aria-label]):not([aria-labelledby]), 
+a:empty[title=""]:not([aria-label])[aria-labelledby=""], 
+a:empty[title=""][aria-label=""]:not([aria-labelledby]), 
+a:empty[title=""][aria-label=""][aria-labelledby=""] {
+    background: red !important;
+    border: red !important;
+    color: red !important;
+}
+a:empty:not([title]):not([aria-label]):not([aria-labelledby])::before, 
+a:empty:not([title]):not([aria-label])[aria-labelledby=""]::before, 
+a:empty:not([title])[aria-label=""]:not([aria-labelledby])::before, 
+a:empty:not([title])[aria-label=""][aria-labelledby=""]::before, 
+a:empty[title=""]:not([aria-label]):not([aria-labelledby])::before, 
+a:empty[title=""]:not([aria-label])[aria-labelledby=""]::before, 
+a:empty[title=""][aria-label=""]:not([aria-labelledby])::before, 
+a:empty[title=""][aria-label=""][aria-labelledby=""]::before,
+a:empty:not([title]):not([aria-label]):not([aria-labelledby])::after, 
+a:empty:not([title]):not([aria-label])[aria-labelledby=""]::after, 
+a:empty:not([title])[aria-label=""]:not([aria-labelledby])::after, 
+a:empty:not([title])[aria-label=""][aria-labelledby=""]::after, 
+a:empty[title=""]:not([aria-label]):not([aria-labelledby])::after, 
+a:empty[title=""]:not([aria-label])[aria-labelledby=""]::after, 
+a:empty[title=""][aria-label=""]:not([aria-labelledby])::after, 
+a:empty[title=""][aria-label=""][aria-labelledby=""]::after {
+    content: none !important;
+}
+
+/* 5. Empty buttons */
 button:empty {
-    background: red;
-    border: red;
-    color: red;
+    background: red !important;
+    border: red !important;
+    color: red !important;
 }
 button:empty::before, button:empty::after {
     content: none !important;
