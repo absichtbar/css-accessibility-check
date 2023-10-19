@@ -1,6 +1,7 @@
 /*
 Attach this CSS file to your Website by adding the following line to the <head> section of your html document: 
 <link rel="stylesheet" href="https://raw.githubusercontent.com/absichtbar/css-accessibility-check/main/css-accessibility-check.css">
+Documentation - https://github.com/absichtbar/css-accessibility-check 
 Created by: Annika Brinkmann - https://annika-brinkmann.de
 */
 
@@ -45,6 +46,14 @@ a:empty[title=""]:not([aria-label])[aria-labelledby=""]::after,
 a:empty[title=""][aria-label=""]:not([aria-labelledby])::after, 
 a:empty[title=""][aria-label=""][aria-labelledby=""]::after {
     content: none !important;
+}
+
+/* 4. Missing form input labels */
+form:has(input:not([hidden]):not([button])):not(:has(label)),
+form:has(input:not([hidden]):not([button])):has(label:empty){
+    background: red !important;
+    border: red !important;
+    color: red !important;
 }
 
 /* 5. Empty buttons */

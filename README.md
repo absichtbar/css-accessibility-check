@@ -13,7 +13,7 @@ So take care you first use it locally to reduce accessibility issues before you 
 # So why should you use css-accessibility-check?
 This CSS would help you to ensure you find certain accessibility issues on your sites you might miss to avoid. 
 
-# Wich accessibility issues does css-accessibility-check show?
+# How did you choose wich accessibility issues css-accessibility-check should show?
 Well, I need to start somewhere, so I decided to start with the most common accessibility failures! 
 https://webaim.org/projects/million/ lists the top 6 issues that 96.3% of the  websites tested in 2023 show:
 1. low contrast text: 83.6% 
@@ -23,6 +23,7 @@ https://webaim.org/projects/million/ lists the top 6 issues that 96.3% of the  w
 5. Empty buttons: 27.5%
 6. Missing document language: 18.6% 
 
+# Wich accessibility issues does css-accessibility-check show?
 css-accessibility-check can detect the following of this failures:
 
 ## 2. Missing alternative text for images
@@ -35,12 +36,17 @@ It does not check if an alt tag is available but empty, because this may be set 
 css-accessibility-check looks for 
 empty <a></a> tags that do not have a title, aria-label or aria-labelled-by attribute and marks them with a 3px red border
 
+## 4. Missing form input labels
+css-accessibility-check looks for 
+forms that have <input> that is not type="button" or type="hidden" but does not have <label> or has empty <label>
+
+It does not check if the form contains labels without for attribute (but contains inputfield inside the label) nor it does check if the for-attribute is connected to an id inside the form.
+
 ## 5. Empty buttons
 css-accessibility-check looks for:
 buttons that do not contain any text nor image and marks them red and removes icons or text that is rendered by generated content.
 
 It does not work if a button contains an image or icon inserted between <button> and </button>. 
-
 
 ## 6. Missing document language
 css-accessibility-check looks for 
@@ -50,10 +56,7 @@ It does not check if the language tag is set correctly.
 
 ++++++++++++++++++++++++++++++++++++++++++++++
 # Wich accessibility issues will it show later?
-
-## 4. Missing form input labels
-css-accessibility-check looks for 
-forms that have <input> that is not type="button" or type="hidden" but dos not have <label> 
+None further planned for this file.
 
 # Wich accessibility issues will not be added?
 ## 1. low contrast text
