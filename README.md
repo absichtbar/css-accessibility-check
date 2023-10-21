@@ -3,7 +3,7 @@ Version: 0.3 – 19th of October 2023
 
 Add the css-file to your websites for live accessibility check by adding the following line to your websites <head> section:
 
-<link rel="stylesheet" href="https://raw.githubusercontent.com/absichtbar/css-accessibility-check/main/css-accessibility-check.css">
+&lt;link rel="stylesheet" href="https://raw.githubusercontent.com/absichtbar/css-accessibility-check/main/css-accessibility-check.css"&gt;
 
 # What css-accessibility-check will do: 
 This css will show you some accessibility errors directly in your page. And it will show them to your users as well, if you use it in production. 
