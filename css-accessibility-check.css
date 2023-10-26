@@ -1,20 +1,42 @@
 /*
-Attach this CSS file to your Website by adding the following line to the <head> section of your html document: 
+Attach this CSS file to your Website by adding the following line to the <head> section AFTER your other stylesheets of your html document: 
 <link rel="stylesheet" href="https://raw.githubusercontent.com/absichtbar/css-accessibility-check/main/css-accessibility-check.css">
 Documentation - https://github.com/absichtbar/css-accessibility-check 
 Created by: Annika Brinkmann - https://annika-brinkmann.de
+Version: Version: 0.4 – 25th of October 2023
 */
 
-/* 2. Missing alternative text for images */
-img[title=""]:not([alt]), img[title=" "]:not([alt]) {
-    outline: 3px solid red !important;
-    outline-offset: 3px !important;
+/* 2. Missing alternative text for images OR alternative text is not a good choice (english only) OR contains only the file name */
+/* Images with only one word or only the URL as content of the alt tag are marked red – if no title or role not presentation are marked with red dashed outline */
+img[alt]:not([alt*=" "]):not([title]):not([role="presentation"]),
+img[alt=" "]:not([title]):not([role="presentation"]),
+img[alt*=".jpg"]:not([alt*=" "]):not([title]):not([role="presentation"]),
+img[alt*=".png"]:not([alt*=" "]):not([title]):not([role="presentation"]),
+img[alt*=".svg"]:not([alt*=" "]):not([title]):not([role="presentation"]),
+img[alt*=".webp"]:not([alt*=" "]):not([title]):not([role="presentation"]),
+img[alt*=".gif"]:not([alt*=" "]):not([title]):not([role="presentation"]),
+/* Images with empty title and no or empty alt tag and without role presentation are marked with red dashed outline */
+img[title=""]:not([alt]):not([role="presentation"]), 
+img[title=" "]:not([alt]):not([role="presentation"]),
+img[title=""]:not([alt*=" "]):not([role="presentation"]), 
+img[title=" "]:not([alt*=" "]):not([role="presentation"]),
+img[title=""][alt=""]:not([role="presentation"]), 
+img[title=" "][alt=""]:not([role="presentation"]),
+img[title=""][alt=" "]:not([role="presentation"]), 
+img[title=" "][alt=" "]:not([role="presentation"]),
+/* images without alt tag and no or empty title tag or title tag without empty space are marked with red dashed outline */
+img:not([alt]):not([title]):not([role="presentation"]),
+img:not([alt])[title=""]:not([role="presentation"]),
+img:not([alt])[title=" "]:not([role="presentation"]){
+    outline: 3px dashed red;
+    outline-offset: 3px;
 }
-img:not([alt]):not([title]) {
-    border: 3px solid red !important;
-    outline: 3px solid red !important;
-    outline-offset: 3px !important;
+/* linked images do not display the red dashed outline, if the link itself contains a non empty title */
+a[title]:not([title=""]):not([title=" "]) img {
+    outline: initial !important;
+    outline-offset: initial !important;
 }
+
 
 /* 3. Empty links */
 a:empty:not([title]):not([aria-label]):not([aria-labelledby]), 
