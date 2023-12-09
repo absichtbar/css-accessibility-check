@@ -71,8 +71,8 @@ a:empty[title=""][aria-label=""][aria-labelledby=""]::after {
 }
 
 /* 4. Missing form input labels */
-form:has(input:not([hidden]):not([button])):not(:has(label)),
-form:has(input:not([hidden]):not([button])):has(label:empty){
+form:has(input:not([type="hidden"]):not([button])):not(:has(label)),
+form:has(input:not([type="hidden"]):not([button])):has(label:empty){
     background: red !important;
     border: red !important;
     color: red !important;
