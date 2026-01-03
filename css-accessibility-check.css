@@ -1,97 +1,120 @@
+@charset "UTF-8";
+/* Load Standards */
+/* test if this works with everything in _top6_webaim_issues! */
+* {
+  position: relative;
+}
+*::before {
+  position: absolute;
+  background: red;
+  color: white;
+  padding: 2px;
+}
+
 /*
 Attach this CSS file to your Website by adding the following line to the <head> section AFTER your other stylesheets of your html document: 
 <link rel="stylesheet" href="https://raw.githubusercontent.com/absichtbar/css-accessibility-check/main/css-accessibility-check.css">
 Documentation - https://github.com/absichtbar/css-accessibility-check 
 Created by: Annika Brinkmann - https://annika-brinkmann.de
-Version: Version: 0.4 – 25th of October 2023
+Version: 0.5 – 3rd of January 2026
 */
+/* Ensure users the CSS is loaded */
+body::before {
+  content: "css-accessibility-check activated. ";
+}
 
 /* 2. Missing alternative text for images OR alternative text is not a good choice (english only) OR contains only the file name */
 /* Images with only one word or only the URL as content of the alt tag are marked red – if no title or role not presentation are marked with red dashed outline */
-img[alt]:not([alt*=" "]):not([title]):not([role="presentation"]),
-img[alt=" "]:not([title]):not([role="presentation"]),
-img[alt*=".jpg"]:not([alt*=" "]):not([title]):not([role="presentation"]),
-img[alt*=".png"]:not([alt*=" "]):not([title]):not([role="presentation"]),
-img[alt*=".svg"]:not([alt*=" "]):not([title]):not([role="presentation"]),
-img[alt*=".webp"]:not([alt*=" "]):not([title]):not([role="presentation"]),
-img[alt*=".gif"]:not([alt*=" "]):not([title]):not([role="presentation"]),
-/* Images with empty title and no or empty alt tag and without role presentation are marked with red dashed outline */
-img[title=""]:not([alt]):not([role="presentation"]), 
-img[title=" "]:not([alt]):not([role="presentation"]),
-img[title=""]:not([alt*=" "]):not([role="presentation"]), 
-img[title=" "]:not([alt*=" "]):not([role="presentation"]),
-img[title=""][alt=""]:not([role="presentation"]), 
-img[title=" "][alt=""]:not([role="presentation"]),
-img[title=""][alt=" "]:not([role="presentation"]), 
-img[title=" "][alt=" "]:not([role="presentation"]),
-/* images without alt tag and no or empty title tag or title tag without empty space are marked with red dashed outline */
-img:not([alt]):not([title]):not([role="presentation"]),
-img:not([alt])[title=""]:not([role="presentation"]),
-img:not([alt])[title=" "]:not([role="presentation"]){
-    outline: 3px dashed red;
-    outline-offset: 3px;
-}
-/* linked images do not display the red dashed outline, if the link itself contains a non empty title */
-a[title]:not([title=""]):not([title=" "]) img {
-    outline: initial !important;
-    outline-offset: initial !important;
+img[alt]:not([alt*=" "]):not([title]):not([role=presentation]),
+img[alt=" "]:not([title]):not([role=presentation]),
+img[alt*=".jpg"]:not([alt*=" "]):not([title]):not([role=presentation]),
+img[alt*=".png"]:not([alt*=" "]):not([title]):not([role=presentation]),
+img[alt*=".svg"]:not([alt*=" "]):not([title]):not([role=presentation]),
+img[alt*=".webp"]:not([alt*=" "]):not([title]):not([role=presentation]),
+img[alt*=".gif"]:not([alt*=" "]):not([title]):not([role=presentation]),
+img[title=""]:not([alt]):not([role=presentation]),
+img[title=" "]:not([alt]):not([role=presentation]),
+img[title=""]:not([alt*=" "]):not([role=presentation]),
+img[title=" "]:not([alt*=" "]):not([role=presentation]),
+img[title=""][alt=""]:not([role=presentation]),
+img[title=" "][alt=""]:not([role=presentation]),
+img[title=""][alt=" "]:not([role=presentation]),
+img[title=" "][alt=" "]:not([role=presentation]),
+img:not([alt]):not([title]):not([role=presentation]),
+img:not([alt])[title=""]:not([role=presentation]),
+img:not([alt])[title=" "]:not([role=presentation]) {
+  outline: 3px dashed red;
+  outline-offset: 3px;
 }
 
+/* linked images do not display the red dashed outline, if the link itself contains a non empty title */
+img[id*=__lpform_password],
+a[title]:not([title=""]):not([title=" "]) img {
+  outline: initial !important;
+  outline-offset: initial !important;
+}
 
 /* 3. Empty links */
-a:empty:not([title]):not([aria-label]):not([aria-labelledby]), 
-a:empty:not([title]):not([aria-label])[aria-labelledby=""], 
-a:empty:not([title])[aria-label=""]:not([aria-labelledby]), 
-a:empty:not([title])[aria-label=""][aria-labelledby=""], 
-a:empty[title=""]:not([aria-label]):not([aria-labelledby]), 
-a:empty[title=""]:not([aria-label])[aria-labelledby=""], 
-a:empty[title=""][aria-label=""]:not([aria-labelledby]), 
+a:empty:not([title]):not([aria-label]):not([aria-labelledby]),
+a:empty:not([title]):not([aria-label])[aria-labelledby=""],
+a:empty:not([title])[aria-label=""]:not([aria-labelledby]),
+a:empty:not([title])[aria-label=""][aria-labelledby=""],
+a:empty[title=""]:not([aria-label]):not([aria-labelledby]),
+a:empty[title=""]:not([aria-label])[aria-labelledby=""],
+a:empty[title=""][aria-label=""]:not([aria-labelledby]),
 a:empty[title=""][aria-label=""][aria-labelledby=""] {
-    background: red !important;
-    border: red !important;
-    color: red !important;
+  background: red !important;
+  border: red !important;
+  color: red !important;
 }
-a:empty:not([title]):not([aria-label]):not([aria-labelledby])::before, 
-a:empty:not([title]):not([aria-label])[aria-labelledby=""]::before, 
-a:empty:not([title])[aria-label=""]:not([aria-labelledby])::before, 
-a:empty:not([title])[aria-label=""][aria-labelledby=""]::before, 
-a:empty[title=""]:not([aria-label]):not([aria-labelledby])::before, 
-a:empty[title=""]:not([aria-label])[aria-labelledby=""]::before, 
-a:empty[title=""][aria-label=""]:not([aria-labelledby])::before, 
+
+a:empty:not([title]):not([aria-label]):not([aria-labelledby])::before,
+a:empty:not([title]):not([aria-label])[aria-labelledby=""]::before,
+a:empty:not([title])[aria-label=""]:not([aria-labelledby])::before,
+a:empty:not([title])[aria-label=""][aria-labelledby=""]::before,
+a:empty[title=""]:not([aria-label]):not([aria-labelledby])::before,
+a:empty[title=""]:not([aria-label])[aria-labelledby=""]::before,
+a:empty[title=""][aria-label=""]:not([aria-labelledby])::before,
 a:empty[title=""][aria-label=""][aria-labelledby=""]::before,
-a:empty:not([title]):not([aria-label]):not([aria-labelledby])::after, 
-a:empty:not([title]):not([aria-label])[aria-labelledby=""]::after, 
-a:empty:not([title])[aria-label=""]:not([aria-labelledby])::after, 
-a:empty:not([title])[aria-label=""][aria-labelledby=""]::after, 
-a:empty[title=""]:not([aria-label]):not([aria-labelledby])::after, 
-a:empty[title=""]:not([aria-label])[aria-labelledby=""]::after, 
-a:empty[title=""][aria-label=""]:not([aria-labelledby])::after, 
+a:empty:not([title]):not([aria-label]):not([aria-labelledby])::after,
+a:empty:not([title]):not([aria-label])[aria-labelledby=""]::after,
+a:empty:not([title])[aria-label=""]:not([aria-labelledby])::after,
+a:empty:not([title])[aria-label=""][aria-labelledby=""]::after,
+a:empty[title=""]:not([aria-label]):not([aria-labelledby])::after,
+a:empty[title=""]:not([aria-label])[aria-labelledby=""]::after,
+a:empty[title=""][aria-label=""]:not([aria-labelledby])::after,
 a:empty[title=""][aria-label=""][aria-labelledby=""]::after {
-    content: none !important;
+  content: none !important;
 }
 
 /* 4. Missing form input labels */
-form:has(input:not([type="hidden"]):not([button])):not(:has(label)),
-form:has(input:not([type="hidden"]):not([button])):has(label:empty){
-    background: red !important;
-    border: red !important;
-    color: red !important;
+form:has(input:not([type=hidden]):not([button])):not(:has(label)),
+form:has(input:not([type=hidden]):not([button])):has(label:empty) {
+  background: red !important;
+  border: red !important;
+  color: red !important;
+}
+
+form:has(input:not([type=hidden]):not([button])):not(:has(label))::before {
+  content: "This Form has Elements that need to have a lable but no label can be detected!";
+  color: white;
 }
 
 /* 5. Empty buttons */
 button:empty {
-    background: red !important;
-    border: red !important;
-    color: red !important;
+  background: red !important;
+  border: red !important;
+  color: red !important;
 }
+
 button:empty::before, button:empty::after {
-    content: none !important;
+  content: none !important;
 }
 
 /* 6. Missing document language */
-html:not([lang])::before, html[lang=""]::before  {
-    content: "language tag is missing!";
-    background: red;
-    color: white;
-    padding: 2px;
+html:not([lang])::before, html[lang=""]::before {
+  content: "language tag is missing!";
+  background: red;
+  color: white;
+  padding: 2px;
 }
