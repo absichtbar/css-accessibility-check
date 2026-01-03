@@ -1,7 +1,7 @@
 # css-accessibility-check
-Version: 0.3 – 19th of October 2023
+Version: 0.4 – 25th of October 2023
 
-Add the css-file to your websites for live accessibility check by adding the following line to your websites <head> section:
+Add the css-file to your websites for live accessibility check by adding the following line to your websites <head> section AFTER your other stylesheets:
 
 &lt;link rel="stylesheet" href="https://raw.githubusercontent.com/absichtbar/css-accessibility-check/main/css-accessibility-check.css"&gt;
 
@@ -28,9 +28,16 @@ css-accessibility-check can detect the following of this failures:
 
 ## 2. Missing alternative text for images
 css-accessibility-check looks for:
-img that do not have an alt tag at all and marks them using a red overlay and 3px red border
+1. img that do not have an alt tag or title tag at all and are not set to role="presentation"
+2. img that do have an alt tag but it contains only one string without space 
+3. img that do have an alt tag but it contains the file name (using .jpg, .svg, .png, .gif, .webp) 
+
+and marks them using a red overlay and 3px red border
 
 It does not check if an alt tag is available but empty, because this may be set to mark the image decorative. 
+
+Lern more about the image issue: https://www.w3.org/WAI/tutorials/images/decorative/ 
+Learn more about useful alt text: https://www.dbsv.org/bildbeschreibung-4-regeln.html (page is in german, please use translatoer if needed)
 
 ## 3. Empty links
 css-accessibility-check looks for 
