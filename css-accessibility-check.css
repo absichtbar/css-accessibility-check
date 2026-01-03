@@ -3,7 +3,7 @@ Attach this CSS file to your Website by adding the following line to the <head> 
 <link rel="stylesheet" href="https://raw.githubusercontent.com/absichtbar/css-accessibility-check/main/css-accessibility-check.css">
 Documentation - https://github.com/absichtbar/css-accessibility-check 
 Created by: Annika Brinkmann - https://annika-brinkmann.de
-Version: Version: 0.4 – 25th of October 2023
+Version: Version: 0.5 – 3rd of January 2026
 */
 
 /* 2. Missing alternative text for images OR alternative text is not a good choice (english only) OR contains only the file name */
@@ -32,6 +32,7 @@ img:not([alt])[title=" "]:not([role="presentation"]){
     outline-offset: 3px;
 }
 /* linked images do not display the red dashed outline, if the link itself contains a non empty title */
+img[id*="__lpform_password"],
 a[title]:not([title=""]):not([title=" "]) img {
     outline: initial !important;
     outline-offset: initial !important;
