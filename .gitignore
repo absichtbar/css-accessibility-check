@@ -1,1 +1,13 @@
+# unfinished test files
+index.html
+bookmarklet_input.html
+*.js
 css-accessibility-css-plus.css
+landmarks.css
+input.css
+test.css
+header-check.css
+config.codekit3
+
+scss/
+scss/*
