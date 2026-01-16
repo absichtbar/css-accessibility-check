@@ -1,0 +1,30 @@
+Code from Harry Roberts:
+
+javascript: (function(){
+    var ct = document.createElement('link');
+    ct.rel = 'stylesheet';
+    ct.href = 'https://csswizardry.com/ct/ct.css';
+    ct.classList.add('ct');
+    document.head.appendChild(ct);
+})();
+
+https://code.tutsplus.com/create-bookmarklets-the-right-way--net-18154t 
+
+Minified:
+(function(){ var ct = document.createElement('link'); ct.rel = 'stylesheet'; ct.href = 'https://csswizardry.com/ct/ct.css'; ct.classList.add('ct'); document.head.appendChild(ct);}());
+
+Diese Version funktioniert: 
+<a href="javascript:(function(){ var ct = document.createElement('link'); ct.rel = 'stylesheet'; ct.href = 'https://csswizardry.com/ct/ct.css'; ct.classList.add('ct'); document.head.appendChild(ct);})();">Bookmarklet CT</a>
+
+//////// eigenes Bookmarklet:
+javascript: (function(){
+    var a11c = document.createElement('link');
+    a11c.rel = 'stylesheet';
+    a11c.href = 'https://raw.githubusercontent.com/absichtbar/css-accessibility-check/refs/heads/main/css-accessibility-check.css';
+    a11c.classList.add('a11c');
+    document.head.appendChild(a11c);
+})();
+
+<a href="javascript:(function(){var e=document.createElement('link');e.rel='stylesheet',e.href='https://raw.githubusercontent.com/absichtbar/css-accessibility-check/refs/heads/main/css-accessibility-check.css',e.classList.add('a11c'),document.head.appendChild(e)})();">Bookmarklet css-accessibility-check</a>
+
+!
