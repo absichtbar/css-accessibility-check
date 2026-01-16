@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+
+<h1 id="css-accessibility-check">css-accessibility-check</h1>
+
+<p>Version: 1.0 – 16th of January 2026</p>
+
+<p>Add the css-file to your websites for live accessibility check by adding the following line to your websites <head> section AFTER your other stylesheets:</p>
+
+<p>&lt;link rel=&#8220;stylesheet&#8221; href=&#8220;https://cdn.jsdelivr.net/gh/absichtbar/css-accessibility-check@main/css-accessibility-check.css&#8221;&gt;</p>
+
+<p>Drag and drop this Bookmarklet-Link to your browsers bookmarks:<br>
+<a href="javascript:(function(){const id='a11c-style';const e=document.getElementById(id);if(e){e.remove();return;}const l=document.createElement('link');l.id=id;l.rel='stylesheet';l.href='https://cdn.jsdelivr.net/gh/absichtbar/css-accessibility-check@main/css-accessibility-check.css';document.head.appendChild(l);})()">css-accessibility-check</a></p>
+
+<h1 id="whatcss-accessibility-checkwilldo:">What css-accessibility-check will do:</h1>
+
+<p>This css will show you some accessibility errors directly in your page. And it will show them to your users as well, if you use it in production.</p>
+
+<p>So take care you first use it locally to reduce accessibility issues before you can go ahead and use it in production. Ideally it would not find anything than.</p>
+
+<h1 id="sowhyshouldyouusecss-accessibility-check">So why should you use css-accessibility-check?</h1>
+
+<p>This CSS would help you to ensure you find certain accessibility issues on your sites you might miss to avoid.</p>
+
+<h1 id="howdidyouchoosewichaccessibilityissuescss-accessibility-checkshouldshow">How did you choose wich accessibility issues css-accessibility-check should show?</h1>
+
+<p>Well, I need to start somewhere, so I decided to start with the most common accessibility failures!
+https://webaim.org/projects/million/ lists the top 6 issues that 96.3% of the websites tested in 2023 show:</p>
+
+<ol>
+<li>low contrast text: 83.6%</li>
+<li>Missing alternative text for images: 58.2%</li>
+<li>Empty links: 50.1%</li>
+<li>Missing form input labels: 45.9%</li>
+<li>Empty buttons: 27.5%</li>
+<li>Missing document language: 18.6%</li>
+</ol>
+
+<h1 id="wichaccessibilityissuesdoescss-accessibility-checkshow">Wich accessibility issues does css-accessibility-check show?</h1>
+
+<p>css-accessibility-check can detect the following of this failures:</p>
+
+<h2 id="2.missingalternativetextforimages">2. Missing alternative text for images</h2>
+
+<p>css-accessibility-check looks for:</p>
+
+<ol>
+<li>img that do not have an alt tag or title tag at all and are not set to role=&#8220;presentation&#8221;</li>
+<li>img that do have an alt tag but it contains only one string without space</li>
+<li>img that do have an alt tag but it contains the file name (using .jpg, .svg, .png, .gif, .webp)</li>
+</ol>
+
+<p>and marks them using a red overlay and 3px red border</p>
+
+<p>It does not check if an alt tag is available but empty, because this may be set to mark the image decorative.</p>
+
+<p>Lern more about the image issue: https://www.w3.org/WAI/tutorials/images/decorative/
+Learn more about useful alt text: https://www.dbsv.org/bildbeschreibung-4-regeln.html (page is in german, please use translatoer if needed)</p>
+
+<h2 id="3.emptylinks">3. Empty links</h2>
+
+<p>css-accessibility-check looks for
+empty <a></a> tags that do not have a title, aria-label or aria-labelled-by attribute and marks them with a 3px red border</p>
+
+<h2 id="4.missingforminputlabels">4. Missing form input labels</h2>
+
+<p>css-accessibility-check looks for
+forms that have <input> that is not type=&#8220;button&#8221; or type=&#8220;hidden&#8221; but does not have <label> or has empty <label></p>
+
+<p>It does not check if the form contains labels without for attribute (but contains inputfield inside the label) nor it does check if the for-attribute is connected to an id inside the form.</p>
+
+<h2 id="5.emptybuttons">5. Empty buttons</h2>
+
+<p>css-accessibility-check looks for:
+buttons that do not contain any text nor image and marks them red and removes icons or text that is rendered by generated content.</p>
+
+<p>It does not work if a button contains an image or icon inserted between <button> and </button>.</p>
+
+<h2 id="6.missingdocumentlanguage">6. Missing document language</h2>
+
+<p>css-accessibility-check looks for
+empty or missing language tag for html.</p>
+
+<p>It does not check if the language tag is set correctly.</p>
+
+<p>++++++++++++++++++++++++++++++++++++++++++++++</p>
+
+<h1 id="wichaccessibilityissueswillitshowlater">Wich accessibility issues will it show later?</h1>
+
+<p>None further planned for this file.</p>
+
+<h1 id="wichaccessibilityissueswillnotbeadded">Wich accessibility issues will not be added?</h1>
+
+<h2 id="1.lowcontrasttext">1. low contrast text</h2>
+
+<p>this needs JavaScript to be detected.</p>
+
+</body>
+</html>
+
