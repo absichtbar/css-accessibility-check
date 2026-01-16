@@ -5,7 +5,8 @@ Documentation - https://github.com/absichtbar/css-accessibility-check
 Created by: Annika Brinkmann - https://annika-brinkmann.de
 Version: Version: 0.4 – 25th of October 2023
 */
-
+/* Visual indicator this file applys */
+html::before {content: "css-accessibility-check Styles apply. If nothing is marked as an error you/the developers did a great job to avoid the most common mistakes regarding accessibility!";color: #000000; background: #FFFFFF; border: 3px solid #000000; padding: 2px;}
 /* 2. Missing alternative text for images OR alternative text is not a good choice (english only) OR contains only the file name */
 /* Images with only one word or only the URL as content of the alt tag are marked red – if no title or role not presentation are marked with red dashed outline */
 img[alt]:not([alt*=" "]):not([title]):not([role="presentation"]),
