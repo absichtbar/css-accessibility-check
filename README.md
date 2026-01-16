@@ -1,5 +1,5 @@
 # css-accessibility-check
-Version: 0.4 – 25th of October 2023
+Version: 1.0 – 16th of January 2026
 
 Add the css-file to your websites for live accessibility check by adding the following line to your websites <head> section AFTER your other stylesheets:
 
