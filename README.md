@@ -6,8 +6,11 @@ Add the css-file to your websites for live accessibility check by adding the fol
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/absichtbar/css-accessibility-check@main/css-accessibility-check.css
 "&gt;
 
-Or – much more simple – drag this JavaScript Bookmarklet to your browsers bookmark bar: 
-**[css-accessibility-check](javascript:(function(){const id='a11c-style';const e=document.getElementById(id);if(e){e.remove();return;}const l=document.createElement('link');l.id=id;l.rel='stylesheet';l.href='https://cdn.jsdelivr.net/gh/absichtbar/css-accessibility-check@main/css-accessibility-check.css';document.head.appendChild(l);})())**
+Or copy & paste this into a new bookmark:
+```text
+javascript:(function(){const id='a11c-style';const e=document.getElementById(id);if(e){e.remove();return;}const l=document.createElement('link');l.id=id;l.rel='stylesheet';l.href='https://cdn.jsdelivr.net/gh/absichtbar/css-accessibility-check@main/css-accessibility-check.css';document.head.appendChild(l);})()
+```
+
 
 # What css-accessibility-check will do: 
 This css will show you some accessibility errors directly in your page. And it will show them to your users as well, if you use it in production. 
